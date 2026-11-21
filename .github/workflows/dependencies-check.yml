@@ -14,11 +14,12 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - uses: samuelcolvin/list-python-dependencies@main
+    - uses: samuelcolvin/list-python-dependencies@v1.2.0
       id: list-python-dependencies
 
   test:
     name: test py${{ matrix.python-version }} on ${{ matrix.PYTHON_DEPENDENCY_CASE }}
+    needs: find_dependency_cases
     strategy:
       fail-fast: true
       matrix:
