@@ -18,6 +18,7 @@ jobs:
       id: list-python-dependencies
 
   test:
+    needs: find_dependency_cases
     name: test py${{ matrix.python-version }} on ${{ matrix.PYTHON_DEPENDENCY_CASE }}
     strategy:
       fail-fast: true
